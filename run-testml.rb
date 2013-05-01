@@ -20,6 +20,10 @@ class TestMLBridge < TestML::Bridge
     str run('livescript --ast', livescript)
   end
 
+  def eval(livescript)
+    native run('livescript --print', livescript)
+  end
+
   def run(command, input)
     output = ''
     IO.popen(command, 'r+') { |p|

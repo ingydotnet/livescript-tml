@@ -1,0 +1,18 @@
+#!/usr/bin/testml
+
+%TestML 0.1.0
+
+*livescript.eval == *result
+
+
+# It would be really nice if leading '- ' tokens (in the proper contexts) acted
+# like YAML for creating arrays in structure definitions.
+=== YAML-style Array
+--- livescript
+a =
+- ~14
+- - ~14
+- -~14
+
+--- result
+[-15,[-15],15]
