@@ -1,6 +1,12 @@
+#!/usr/bin/env testml
+
+# These are just some simple tests I made during setup. They can probably go
+# away.
+
 %TestML 0.1.0
 
 *ls.compile == *js
+
 
 === Integer Assignment
 --- ls

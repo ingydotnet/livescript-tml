@@ -1,0 +1,62 @@
+#!/usr/bin/env testml
+
+# This TestML file tests the various stages of LiveScript compilation.
+
+%TestML 0.1.0
+
+*ls.tokenize == *tokens
+*ls.to_ast == *ast
+*ls.compile == *js
+
+
+=== Object assignment
+--- ls
+obj = {prop: 1, thing: 'moo'}
+
+--- tokens
+ID:obj ASSIGN:= { ID:prop : STRNUM:1 , ID:thing : STRNUM:'moo' }
+NEWLINE:\n
+
+--- ast
+Block
+  Assign  =
+    Var obj
+    Obj
+      Prop
+        Key prop
+        Literal 1
+      Prop
+        Key thing
+        Literal 'moo'
+
+--- js
+var obj;
+obj = {
+  prop: 1,
+  thing: 'moo'
+};
+
+=== Flagging
+--- ls
+{+debug, -live}
+
+--- tokens
+{ +-:+ ID:debug , +-:- ID:live }
+NEWLINE:\n
+
+--- ast
+Block
+  Obj
+    Prop
+      Key debug
+      Literal true
+    Prop
+      Key live
+      Literal
+
+--- js
+({
+  debug: true,
+  live: false
+});
+

@@ -1,6 +1,11 @@
+#!/usr/bin/env testml
+
+# These tests are from the examples in http://livescript.net/
+
 %TestML 0.1.0
 
 *ls.compile == *js
+
 
 === From http://livescript.net/ Overview Sample 1
 --- ls

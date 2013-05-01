@@ -7,16 +7,27 @@ require 'testml/util'
 
 class TestMLBridge < TestML::Bridge
   include TestML::Util
+
   def compile(livescript)
-    javascript = ''
-    IO.popen('livescript --compile --bare', 'r+') { |p|
-      p.puts(livescript.value)
+    str run('livescript --compile --bare', livescript)
+  end
+
+  def tokenize(livescript)
+    str run('livescript --tokens', livescript)
+  end
+
+  def to_ast(livescript)
+    str run('livescript --ast', livescript)
+  end
+
+  def run(command, input)
+    output = ''
+    IO.popen(command, 'r+') { |p|
+      p.puts(input.value)
       p.close_write
-      while not p.eof?
-        javascript += p.read
-      end
+      output += p.read until p.eof?
     }
-    return str javascript
+    return output
   end
 end
 
