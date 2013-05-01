@@ -1,0 +1,25 @@
+= Overview
+
+This is a [TestML](http://testml.org) test suite for
+[LiveScript](http://livescript.net).
+
+= Setup
+
+This suite can be used with any language that supports TestML.
+
+The suite comes with a Ruby runner script, to run the tests out of the box.
+
+The basic steps are:
+
+    > npm install livescript
+    > gem install testml
+    > ruby run-testml.rb                    # Run all tests
+    > ruby run-testml.rb foo.tml bar.tml    # Run specific tests
+
+That's it!
+
+= Status
+
+This test suite is in a proof of concept stage.
+
+When TestML is ported to LiveScript, the runner will be ported too.

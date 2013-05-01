@@ -1,0 +1,23 @@
+%TestML 0.1.0
+
+*ls.compile == *js
+
+=== Integer Assignment
+--- ls
+x = 123
+--- js
+var x;
+x = 123;
+
+=== String Assignment
+--- ls
+x = '123'
+--- js
+var x;
+x = '123';
+
+=== Quote Preservation
+--- ls
+a 'x', "y"
+--- js
+a('x', "y");
