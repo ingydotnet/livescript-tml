@@ -1,7 +1,7 @@
 = Overview
 
-This is a [TestML](http://testml.org) test suite for
-[LiveScript](http://livescript.net).
+This is a {TestML}[http://testml.org] test suite for
+{LiveScript}[http://livescript.net].
 
 = Setup
 
