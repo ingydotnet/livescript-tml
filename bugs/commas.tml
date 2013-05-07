@@ -2,7 +2,7 @@
 
 %TestML 0.1.0
 
-*fails.eval == *works
+*fails.compile == *works.compile
 
 
 === Comma-less structured assignment
