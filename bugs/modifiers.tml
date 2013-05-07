@@ -1,0 +1,14 @@
+#!/usr/bin/testml
+
+%TestML 0.1.0
+
+*fails.compile == *works.compile
+
+
+=== Failing FOR trailing clause
+--- fails
+h[k] = v for k, v of o
+
+--- works
+for k, v of o
+  h[k] = v
