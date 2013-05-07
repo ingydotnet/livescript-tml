@@ -4,6 +4,7 @@ require 'test/unit'
 require 'testml'
 require 'testml/bridge'
 require 'testml/util'
+require 'open3'
 
 class TestMLBridge < TestML::Bridge
   include TestML::Util
@@ -25,13 +26,13 @@ class TestMLBridge < TestML::Bridge
   end
 
   def run(command, input)
-    output = ''
-    IO.popen(command, 'r+') { |p|
-      p.puts(input.value)
-      p.close_write
-      output += p.read until p.eof?
-    }
-    return output
+    stdin, stdout, stderr = Open3.popen3(command)
+    stdin.puts(input.value)
+    stdin.close
+    result = stderr.readlines.join('') + stdout.readlines.join('')
+    stdout.close
+    stderr.close
+    result
   end
 end
 
