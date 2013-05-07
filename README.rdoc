@@ -1,9 +1,9 @@
 = Overview
 
 This is a {TestML}[http://testml.org] test suite for
-{LiveScript}[http://livescript.net].
+[LiveScript}[http://livescript.net].
 
-= Setup
+= Usage
 
 This suite can be used with any language that supports TestML.
 
@@ -13,13 +13,20 @@ The basic steps are:
 
     > npm install livescript
     > gem install testml
-    > ruby run-testml.rb                    # Run all tests
-    > ruby run-testml.rb foo.tml bar.tml    # Run specific tests
+
+    > ruby run-testml.rb                    # Run all top level tests
+    > ruby run-testml-rb wish/switch.tml    # Run a specific test
+    > ruby run-testml.rb bugs/*             # Run specific tests
 
 That's it!
 
 = Status
 
-This test suite is in a proof of concept stage.
+This test suite is in a proof of concept stage. The top level tml files should
+pass. There is a 'wish' folder where failing tests for various possible new
+features go. There is a 'bugs' feature for failing tests that prove (possible)
+bugs in LiveScript.
 
-When TestML is ported to LiveScript, the runner will be ported too.
+TestML is being ported to LiveScript. When that happens, the runner script will
+be rewritten as LiveScript. Note that this isn't really important to running
+these tests successfully.
